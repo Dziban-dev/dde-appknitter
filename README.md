@@ -4,7 +4,7 @@
 
 ## [EN]
 
-Start a .desktop file wizard from the rick click manu. to automatically create icon launchers for your executables (appimages, shell scripts, binaries etc) 
+Start a .desktop file wizard from the rick click manu, to automatically create icon launchers for your executables (appimages, shell scripts, binaries etc).
 
 **NOTE:** This app is intended for DeepinOS v20 and up. For now, it only supports english and spanish environments.
 
