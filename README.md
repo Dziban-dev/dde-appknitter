@@ -5,7 +5,7 @@ Start a .desktop file wizard from the rick click manu. to create icon launchers 
 
 **NOTE:** This app is inteded for DeepinOS v20 and up. For now it only supports english and spanish enviroments.
 
-# [ES]
+## [ES]
 Inicializa un asistente para la creación de archivos .desktop de tus ejecutables (appimages, shell scripts, binarios etc) para ser    integrados en el lanzador de aplicaciónes de forma automatica.
 
 
