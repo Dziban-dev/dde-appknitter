@@ -1,12 +1,12 @@
 # dee-appknitter
 
-##[EN]
+## [EN]
 Start a .desktop file wizard from the rick click manu. to create icon launchers for your executables (appimages, shell scripts, binaries etc) automatically
 
-NOTE: This app is inteded for DeepinOS v20 and up. For now it only supports english and spanish enviroments.
+**NOTE:** This app is inteded for DeepinOS v20 and up. For now it only supports english and spanish enviroments.
 
-##[ES]
-Inicializa un asistente para la creación de archivos .desktop de tus ejecutables (appimages, shell scripts, binarios etc) para ser integrados en el lanzador de aplicaciónes de forma automatica.
+# [ES]
+Inicializa un asistente para la creación de archivos .desktop de tus ejecutables (appimages, shell scripts, binarios etc) para ser    integrados en el lanzador de aplicaciónes de forma automatica.
 
 
-NOTE: Esta app esta hecha para correr DeepinOS v20 en adelante. Por ahora solo soporta entornos en ingles y español.
+**NOTE:**  Esta app esta hecha para correr DeepinOS v20 en adelante. Por ahora solo soporta entornos en ingles y español.
