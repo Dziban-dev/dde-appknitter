@@ -1,6 +1,6 @@
 # dee-appknitter
 
-![/home/dziban/Pictures/Screen Capture_select-area_20200502093832.png](/home/dziban/.config/marktext/images/2a80f13afcf6ddab4f9931778adb8401ba05c380.png)
+![immg.png](img.png)
 
 ## [EN]
 
