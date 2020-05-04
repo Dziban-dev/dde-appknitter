@@ -1,0 +1,12 @@
+[Desktop Entry]
+Exec=/usr/bin/appknitter.sh
+Name=Create new .desktop file
+Name[es]=Crear nuevo ejecutable .desktop
+Name[en]=Create new .desktop file
+GenericName[es]=Crear nuevo ejecutable .desktop
+GenericName[en]=Create new .desktop file
+Terminal=false
+Type=Application
+MimeType=application/octet-stream
+X-DFM-MenuTypes=EmptyArea
+X-Deepin-Vendor=user-custom
