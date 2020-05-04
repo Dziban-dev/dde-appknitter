@@ -1,4 +1,4 @@
-# dee-appknitter
+# dde-appknitter
 
 ![immg.png](img.png)
 
