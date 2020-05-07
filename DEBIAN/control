@@ -3,6 +3,6 @@ Version: 1.0
 Architecture: all
 Essential: no
 Priority: optional
-Depends: deepin-editor, dde-file-manager, dde-file-manager-menu-oem
+Depends: deepin-editor, dde-file-manager, dde-file-manager-menu-oem, zenity
 Maintainer: <deepinenespanol.org> Dziban
 Description: Extención OEM para crear archivos .desktop para archivos appimage u otros ejecutables, desde el menu contextual del click derecho.
