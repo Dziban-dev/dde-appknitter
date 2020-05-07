@@ -1,3 +1,4 @@
+#!/bin/bash
 #TRANSLATION VARIABLES
 #Titles
 #---Name Request Window
