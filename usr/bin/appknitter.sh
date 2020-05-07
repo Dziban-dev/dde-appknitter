@@ -54,10 +54,10 @@ readonly KEYW_REQUEST_DLG2_zh_CN="这里;是;示例;type;keywords"
 ###############################################################
 #GETTING SYSTEM LANGUAGE
 # LANG=$(locale | grep LANGUAGE | cut -d= -f2 | cut -d_ -f1)
-LANG_TMP=$(locale | rg LANG= | cut -d= -f2 | cut -d. -f1 | cut -d_ -f1)
+LANG_TMP=$(locale | grep LANG= | cut -d= -f2 | cut -d. -f1 | cut -d_ -f1)
 eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
 if [ ! -n "$title" ]; then
-    LANG_TMP=$(locale | rg LANG | cut -d= -f2 | cut -d. -f1)
+    LANG_TMP=$(locale | grep LANG | cut -d= -f2 | cut -d. -f1)
     echo ${LANG_TMP}
 fi
 eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
