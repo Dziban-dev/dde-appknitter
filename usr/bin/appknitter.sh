@@ -3,7 +3,7 @@
 #---Name Request Window
 readonly NAME_REQUEST_TIL_en="New .desktop File's Name"
 readonly NAME_REQUEST_TIL_es="Nombre Para .desktop Nuevo"
-readonly NAME_REQUEST_TIL_zh_CN=".desktop 文件的名字"
+readonly NAME_REQUEST_TIL_zh_CN=".desktop 文件名"
 readonly EXEC_REQUEST_TIL_en="Select Executable File"
 readonly EXEC_REQUEST_TIL_es="Selecciona Un Archivo Ejecutable"
 readonly EXEC_REQUEST_TIL_zh_CN="选择执行文件"
@@ -53,21 +53,17 @@ readonly KEYW_REQUEST_DLG2_es="ejemplo;de;como;escribir;las;palabras;clave"
 readonly KEYW_REQUEST_DLG2_zh_CN="这里;是;示例;type;keywords"
 ###############################################################
 #GETTING SYSTEM LANGUAGE
-# LANG=$(locale | grep LANGUAGE | cut -d= -f2 | cut -d_ -f1)
 LANG_TMP=$(locale | grep LANG= | cut -d= -f2 | cut -d. -f1 | cut -d_ -f1)
 eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
 if [ ! -n "$title" ]; then
     LANG_TMP=$(locale | grep LANG | cut -d= -f2 | cut -d. -f1)
-    echo ${LANG_TMP}
+    eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
 fi
-eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
 if [ ! -n "$title" ]; then
     LANG_TMP=en
-    echo ${LANG_TMP}
+    eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
 fi
 #----NAME
-eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
-echo ${title}
 eval "text=\$NAME_REQUEST_DLG_${LANG_TMP}"
 eval "text2=\$NAME_REQUEST2_DLG_${LANG_TMP}"
 get_name(){
