@@ -68,23 +68,26 @@ declare -r -A CATEG_es=( [Internet]=Internet [Mensajería]=Chat [Música]=Music 
 declare -r -A CATEG_zh_CN=( [网络应用]=Internet [社交沟通]=Chat [音乐欣赏]=Music [视频播放]=Video [图形图像]=Graphics [办公学习]=Office [阅读]=Literature [编程开发]=Development [系统管理]=System [其他应用]=Others )
 ###############################################################
 #GETTING SYSTEM LANGUAGE
-LANG_TMP=$(locale | grep LANG= | cut -d= -f2 | cut -d. -f1 | cut -d_ -f1)
-eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
+GET_LANG=$(locale | grep LANGUAGE= | cut -d= -f2)
+if [ ! -n "${GET_LANG}" ]; then
+    GET_LANG=$(locale | grep LANG= | cut -d= -f2 | cut -d. -f1)
+fi
+eval "title=\$NAME_REQUEST_TIL_${GET_LANG}"
 if [ ! -n "$title" ]; then
-    LANG_TMP=$(locale | grep LANG | cut -d= -f2 | cut -d. -f1)
-    eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
+    GET_LANG=$(echo $GET_LANG | cut -d_ -f1)
+    eval "title=\$NAME_REQUEST_TIL_${GET_LANG}"
 fi
 if [ ! -n "$title" ]; then
-    LANG_TMP=en
-    eval "title=\$NAME_REQUEST_TIL_${LANG_TMP}"
+    GET_LANG=en
+    eval "title=\$NAME_REQUEST_TIL_${GET_LANG}"
 fi
 #----NAME
-eval "text=\$NAME_REQUEST_DLG_${LANG_TMP}"
-eval "text2=\$NAME_REQUEST2_DLG_${LANG_TMP}"
+eval "text=\$NAME_REQUEST_DLG_${GET_LANG}"
+eval "text2=\$NAME_REQUEST2_DLG_${GET_LANG}"
 #---BUTTONS
-eval "btn_ok=\$BTN_OK_${LANG_TMP}"
-eval "btn_cancel=\$BTN_CANCEL_${LANG_TMP}"
-eval "btn_open=\$BTN_OPEN_${LANG_TMP}"
+eval "btn_ok=\$BTN_OK_${GET_LANG}"
+eval "btn_cancel=\$BTN_CANCEL_${GET_LANG}"
+eval "btn_open=\$BTN_OPEN_${GET_LANG}"
 ###############################################################
 get_name(){
     zenity --entry --width=300 --title="$title"  --text="$text" --ok-label="$btn_ok" --cancel-label="$btn_cancel"
@@ -95,28 +98,28 @@ while [ "$(expr match "$name" '.')" -lt "1" ]; do
     name=$(get_name) || exit
 done
 #----EXEC
-eval "title=\$EXEC_REQUEST_TIL_${LANG_TMP}"
+eval "title=\$EXEC_REQUEST_TIL_${GET_LANG}"
 exec=$(zenity --title="$title" --file-selection)
 #----ICON
-eval "title=\$ICON_REQUEST_TIL_${LANG_TMP}"
+eval "title=\$ICON_REQUEST_TIL_${GET_LANG}"
 icon=$(zenity --title="$title" --file-selection)
 #----CATEG
-eval "title=\$CATEG_REQUEST_TIL_${LANG_TMP}"
-eval "text=\$CATEG_REQUEST_DLG_${LANG_TMP}"
-eval "text2=\$CATEG_REQUEST_DLG2_${LANG_TMP}"
-eval "combo=\$CATEG_REQUEST_COMBO_${LANG_TMP}"
+eval "title=\$CATEG_REQUEST_TIL_${GET_LANG}"
+eval "text=\$CATEG_REQUEST_DLG_${GET_LANG}"
+eval "text2=\$CATEG_REQUEST_DLG2_${GET_LANG}"
+eval "combo=\$CATEG_REQUEST_COMBO_${GET_LANG}"
 categ=$(zenity --forms --width=350 --title="$title" --text="$text" --add-combo="$text2" --combo-values="$combo")
 #----KEYW
-eval "title=\$KEYW_REQUEST_TIL_${LANG_TMP}"
-eval "text=\$KEYW_REQUEST_DLG_${LANG_TMP}"
-eval "text2=\$KEYW_REQUEST_DLG2_${LANG_TMP}"
+eval "title=\$KEYW_REQUEST_TIL_${GET_LANG}"
+eval "text=\$KEYW_REQUEST_DLG_${GET_LANG}"
+eval "text2=\$KEYW_REQUEST_DLG2_${GET_LANG}"
 keyw=$(zenity --entry --width=350 --title="$title" --entry-text="$text2" --text="$text" --ok-label="$btn_ok" --cancel-label="$btn_cancel")
 #
 if [ ! -d "$HOME/.local/share/applications" ] 
 then
     mkdir ~/.local/share/applications
 fi
-CATEGORY=CATEG_${LANG_TMP}
+CATEGORY=CATEG_${GET_LANG}
 KEY_CAT=${CATEGORY}[${categ}]
 cat > ~/.local/share/applications/${name}.desktop<<EOT
 [Desktop Entry]
