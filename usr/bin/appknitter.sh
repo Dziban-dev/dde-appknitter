@@ -72,13 +72,15 @@ GET_LANG=$(locale | grep LANGUAGE= | cut -d= -f2)
 if [ ! -n "${GET_LANG}" ]; then
     GET_LANG=$(locale | grep LANG= | cut -d= -f2 | cut -d. -f1)
 fi
+if [ ! -n "${GET_LANG}" ]; then
+    GET_LANG=$(locale | grep LC_ALL= | cut -d= -f2 | cut -d. -f1)
+fi
+if [ ! -n "${GET_LANG}" ]; then
+    GET_LANG=en
+fi
 eval "title=\$NAME_REQUEST_TIL_${GET_LANG}"
 if [ ! -n "$title" ]; then
     GET_LANG=$(echo $GET_LANG | cut -d_ -f1)
-    eval "title=\$NAME_REQUEST_TIL_${GET_LANG}"
-fi
-if [ ! -n "$title" ]; then
-    GET_LANG=en
     eval "title=\$NAME_REQUEST_TIL_${GET_LANG}"
 fi
 #----NAME
